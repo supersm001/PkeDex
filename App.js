@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, StatusBar, View, Image} from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, View, Image } from 'react-native';
 
 const App = () => {
   return (
@@ -9,6 +9,9 @@ const App = () => {
         <View style={styles.bigButton}>
           <View style={styles.bigButtonPart}></View>
         </View>
+        <View style={styles.lilButton1}></View>
+        <View style={styles.lilButton2}></View>
+        <View style={styles.lilButton3}></View>
         <View style={styles.interface}>
           <View style={styles.dataFrame}>
             <View style={styles.display}>
@@ -34,7 +37,9 @@ const App = () => {
               </View>
             </View>
           </View>
-          <View style={styles.controlFrame}></View>
+          <View style={styles.controlFrame}>
+            <View style={styles.blueButton}></View>
+          </View>
         </View>
         <View style={styles.interfacePart}></View>
         <View style={styles.interfacePart1}></View>
@@ -79,6 +84,37 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     elevation: 30,
   },
+  lilButton1: {
+    height: '3%',
+    width: '5.5 %',
+    position: 'absolute',
+    top: '2%',
+    left: '40%',
+    backgroundColor: 'red',
+    borderRadius: 100,
+    elevation: 10,
+  },
+  lilButton2: {
+    height: '3%',
+    width: '5.5 %',
+    position: 'absolute',
+    top: '2%',
+    left: '48%',
+    backgroundColor: 'yellow',
+    borderRadius: 100,
+    elevation: 10,
+  },
+  lilButton3: {
+    height: '3%',
+    width: '5.5 %',
+    position: 'absolute',
+    top: '2%',
+    left: '56%',
+    backgroundColor: 'lightgreen',
+    borderRadius: 100,
+    elevation: 10,
+  },
+
 
   foldClip: {
     position: 'absolute',
@@ -193,6 +229,17 @@ const styles = StyleSheet.create({
     width: '90%',
     backgroundColor: 'transparent',
     borderBottomLeftRadius: 50,
+
+  },
+  blueButton: {
+    height: '30%',
+    width: '19%',
+    position: 'absolute',
+    top: '0%',
+    left: '7%',
+    backgroundColor: '#0d47a1',
+    borderRadius: 100,
+    elevation: 10,
   },
   display: {
     height: '60%',
@@ -208,7 +255,7 @@ const styles = StyleSheet.create({
     height: '50%',
     width: '50%',
     backgroundColor: '#d50000',
-    transform: [{rotateX: '50deg'}, {rotateZ: '50deg'}],
+    transform: [{ rotateX: '50deg' }, { rotateZ: '50deg' }],
     left: '-25%',
     top: '70%',
   },
