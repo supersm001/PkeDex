@@ -1,6 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, StatusBar, View, Image } from 'react-native';
-
+import { SafeAreaView, StyleSheet, StatusBar, View, Image, Dimensions } from 'react-native';
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
+const metric = height / 100;
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -58,17 +60,19 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
-    flex: 1,
+    height: height,
+    width: width
   },
   mainPanel: {
     backgroundColor: '#9b0000',
-    flex: 1,
+    height: height,
+    width: width,
     borderTopLeftRadius: 50,
     borderBottomLeftRadius: 50,
   },
   bigButton: {
-    height: '15%',
-    width: '27%',
+    height: metric * 15,
+    width: metric * 15,
     position: 'absolute',
     top: '2%',
     left: '7%',
@@ -85,8 +89,8 @@ const styles = StyleSheet.create({
     elevation: 30,
   },
   lilButton1: {
-    height: '3%',
-    width: '5.5 %',
+    height: metric * 3,
+    width: metric * 3,
     position: 'absolute',
     top: '2%',
     left: '40%',
@@ -95,8 +99,8 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   lilButton2: {
-    height: '3%',
-    width: '5.5 %',
+    height: metric * 3,
+    width: metric * 3,
     position: 'absolute',
     top: '2%',
     left: '48%',
@@ -105,8 +109,8 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   lilButton3: {
-    height: '3%',
-    width: '5.5 %',
+    height: metric * 3,
+    width: metric * 3,
     position: 'absolute',
     top: '2%',
     left: '56%',
@@ -232,8 +236,8 @@ const styles = StyleSheet.create({
 
   },
   blueButton: {
-    height: '30%',
-    width: '19%',
+    height: metric * 10,
+    width: metric * 10,
     position: 'absolute',
     top: '0%',
     left: '7%',
@@ -270,10 +274,10 @@ const styles = StyleSheet.create({
   displayPart2: {
     position: 'absolute',
     height: '4%',
-    width: '4%',
+    width: '3%',
     backgroundColor: '#d50000',
     top: '96%',
-    left: '27%',
+    left: '28%',
   },
   displayPart3: {
     position: 'absolute',
@@ -286,11 +290,11 @@ const styles = StyleSheet.create({
   },
   displayPart4: {
     position: 'absolute',
-    height: '8%',
-    width: '8%',
+    height: metric * 2,
+    width: metric * 2,
     backgroundColor: '#9e9e9e',
-    top: '92%',
-    left: '26%',
+    top: '93%',
+    left: '28%',
     borderRadius: 100,
   },
   OutputScreen: {
@@ -305,13 +309,14 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   OutputScreenImage: {
-    flex: 1,
+    height: '100%',
+    width: '100%',
     borderRadius: 15,
     resizeMode: 'stretch',
   },
   dot1: {
-    height: '5%',
-    width: '4%',
+    height: metric * 1.5,
+    width: metric * 1.5,
     position: 'absolute',
     top: '3%',
     left: '45%',
@@ -320,8 +325,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   dot2: {
-    height: '5%',
-    width: '4%',
+    height: metric * 1.5,
+    width: metric * 1.5,
     position: 'absolute',
     top: '3%',
     left: '55%',
@@ -330,8 +335,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   redButton: {
-    height: '14%',
-    width: '10%',
+    height: metric * 5,
+    width: metric * 5,
     position: 'absolute',
     top: '80%',
     left: '30%',
