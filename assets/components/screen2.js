@@ -20,7 +20,29 @@ const Screen2 = ({navigation}) => {
       <StatusBar hidden={true} />
       <View style={styles.mainPanel}>
         <View style={styles.interface}>
-          <View style={styles.dataFrame}></View>
+          <View style={styles.dataFrame}>
+            <View
+              style={{
+                height: '45%',
+                width: '85%',
+                backgroundColor: 'yellow',
+              }}></View>
+            <View
+              style={{
+                height: '30%',
+                width: '85%',
+                backgroundColor: 'purple',
+              }}></View>
+          </View>
+          <View style={styles.controlFrame}>
+            <View
+              style={{
+                height: '60%',
+                width: '70%',
+                backgroundColor: 'green',
+                borderBottomRightRadius: 50,
+              }}></View>
+          </View>
         </View>
         <View style={styles.interfacePart}></View>
         <View style={styles.interfacePart1}></View>
@@ -131,7 +153,7 @@ const styles = StyleSheet.create({
     height: '10%',
     width: '50%',
     position: 'absolute',
-    top: '10%',
+    top: '10.006%',
     left: 0,
     zIndex: 2,
     backgroundColor: '#d50000',
@@ -158,9 +180,19 @@ const styles = StyleSheet.create({
     borderRadius: 150,
   },
   dataFrame: {
-    height: '60%',
+    height: '70%',
     width: '90%',
+    left: '10%',
     backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  controlFrame: {
+    height: '30%',
+    width: '90%',
+    left: '10%',
+    backgroundColor: 'transparent',
+    borderBottomRightRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
   },
