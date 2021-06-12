@@ -22,16 +22,16 @@ const Screen1 = ({navigation}) => {
         <View style={styles.bigButton}>
           <View style={styles.bigButtonPart}></View>
         </View>
-        <View style={styles.lilButton1}></View>
-        <View style={styles.lilButton2}></View>
-        <View style={styles.lilButton3}></View>
+        <TouchableOpacity style={styles.lilButton1}></TouchableOpacity>
+        <TouchableOpacity style={styles.lilButton2}></TouchableOpacity>
+        <TouchableOpacity style={styles.lilButton3}></TouchableOpacity>
         <View style={styles.interface}>
           <View style={styles.dataFrame}>
             <View style={styles.display}>
               <View style={styles.displayPart}></View>
               <View style={styles.dot1}></View>
               <View style={styles.dot2}></View>
-              <View style={styles.redButton}></View>
+              <TouchableOpacity style={styles.redButton}></TouchableOpacity>
               <View style={styles.speakerGrill1}></View>
               <View style={styles.speakerGrill2}></View>
               <View style={styles.speakerGrill3}></View>
@@ -47,9 +47,9 @@ const Screen1 = ({navigation}) => {
             </View>
           </View>
           <View style={styles.controlFrame}>
-            <View style={styles.blueButton}></View>
-            <View style={styles.capsulebutton1}></View>
-            <View style={styles.capsulebutton2}></View>
+            <TouchableOpacity style={styles.blueButton}></TouchableOpacity>
+            <TouchableOpacity style={styles.capsulebutton1}></TouchableOpacity>
+            <TouchableOpacity style={styles.capsulebutton2}></TouchableOpacity>
             <View style={styles.rankBoard}>
               <View style={styles.innerRankBoard}>
                 <Text style={styles.rankText}>26</Text>
@@ -57,16 +57,24 @@ const Screen1 = ({navigation}) => {
             </View>
             <View style={styles.joystick}>
               <View style={styles.joysticPart1}>
-                <AntDesignIcon name="caretup" size={30} color="gray" />
+                <TouchableOpacity>
+                  <AntDesignIcon name="caretup" size={30} color="gray" />
+                </TouchableOpacity>
               </View>
               <View style={styles.joysticPart2}>
-                <AntDesignIcon name="caretleft" size={30} color="gray" />
+                <TouchableOpacity>
+                  <AntDesignIcon name="caretleft" size={30} color="gray" />
+                </TouchableOpacity>
               </View>
               <View style={styles.joysticPart3}>
-                <AntDesignIcon name="caretright" size={30} color="gray" />
+                <TouchableOpacity>
+                  <AntDesignIcon name="caretright" size={30} color="gray" />
+                </TouchableOpacity>
               </View>
               <View style={styles.joysticPart4}>
-                <AntDesignIcon name="caretdown" size={30} color="gray" />
+                <TouchableOpacity>
+                  <AntDesignIcon name="caretdown" size={30} color="gray" />
+                </TouchableOpacity>
               </View>
               <View style={styles.joysticPart5}></View>
             </View>

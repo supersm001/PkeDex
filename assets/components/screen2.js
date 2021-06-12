@@ -44,26 +44,26 @@ const Screen2 = ({navigation}) => {
             </View>
           </View>
           <View style={styles.controlFrame}>
-            <View style={styles.lilButton1}></View>
-            <View style={styles.lilButton2}></View>
-            <View style={styles.playButton}>
+            <TouchableOpacity style={styles.lilButton1}></TouchableOpacity>
+            <TouchableOpacity style={styles.lilButton2}></TouchableOpacity>
+            <TouchableOpacity style={styles.playButton}>
               <EntypoIcon
                 name="triangle-left"
                 size={50}
                 color="#7f0000"
                 style={{left: -4}}
               />
-            </View>
-            <View style={styles.capsulebutton1}></View>
-            <View style={styles.capsulebutton2}></View>
-            <View style={styles.arrowButtonLeft}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.capsulebutton1}></TouchableOpacity>
+            <TouchableOpacity style={styles.capsulebutton2}></TouchableOpacity>
+            <TouchableOpacity style={styles.arrowButtonLeft}>
               <AntDesignIcon name="caretleft" size={30} color="#7f0000" />
-            </View>
-            <View style={styles.arrowButtonRight}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.arrowButtonRight}>
               <AntDesignIcon name="caretright" size={30} color="#7f0000" />
-            </View>
-            <View style={styles.bigButton}></View>
-            <View style={styles.bigButton2}></View>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bigButton}></TouchableOpacity>
+            <TouchableOpacity style={styles.bigButton2}></TouchableOpacity>
           </View>
         </View>
         <View style={styles.interfacePart}></View>
@@ -339,12 +339,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '60%',
     left: '13%',
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: '#ffc400',
-    shadowColor: '#000000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.9,
-    shadowRadius: 3,
+    // shadowColor: '#000000',
+    // shadowOffset: {width: 0, height: 2},
+    // shadowOpacity: 0.9,
+    // shadowRadius: 3,
     elevation: 20,
   },
   bigButton2: {
@@ -354,13 +354,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '60%',
     left: '50%',
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: '#ffc400',
-    shadowColor: '#000000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.9,
-    shadowRadius: 3,
-    elevation: 20,
+    // shadowColor: '#000000',
+    // shadowOffset: {width: 0, height: 2},
+    // shadowOpacity: 0.9,
+    // shadowRadius: 3,
+    elevation: 10,
   },
 });
 
