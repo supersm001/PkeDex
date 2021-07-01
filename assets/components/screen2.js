@@ -159,7 +159,7 @@ const Screen2 = ({navigation}) => {
                   />
                 </View>
                 <View style={styles.minDisplay}>
-                  <WebView
+                  <Image
                     source={{uri: picDreamWorld}}
                     style={styles.minDisplayImages}
                   />
@@ -397,7 +397,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     borderWidth: 1,
     borderRadius: 10,
-    // overflow: 'hidden',
+    overflow: 'hidden',
     elevation: 10,
   },
   minDisplayImages: {
