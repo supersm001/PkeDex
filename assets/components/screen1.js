@@ -34,19 +34,19 @@ const Screen1 = ({navigation}) => {
 
   function arrowUp() {
     if (rank != 1) {
+      StoreRank(rank - 1);
       setRank(rank - 1);
-      StoreRank(rank.toString());
     }
   }
   function arrowDown() {
     if (rank != 887) {
+      StoreRank(rank + 1);
       setRank(rank + 1);
-      StoreRank(rank.toString());
     }
   }
 
-  async function StoreRank(rank) {
-    await AsyncStorage.setItem('rank', rank);
+  async function StoreRank(num) {
+    await AsyncStorage.setItem('rank', num.toString());
   }
 
   return (
@@ -498,7 +498,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#d50000',
     transform: [{rotateX: '70deg'}, {rotateZ: '70deg'}],
     left: '-38%',
-    top: '69%',
+    top: '70%',
   },
 
   OutputScreen: {

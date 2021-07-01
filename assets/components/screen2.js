@@ -5,10 +5,11 @@ import {
   StatusBar,
   View,
   Text,
-  Image,
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
+import Image from 'react-native-remote-svg';
+import WebView from 'react-native-webview';
 import {getPokeData} from '../components/apis';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -28,18 +29,38 @@ const Screen2 = ({navigation}) => {
   const [abilities, setAbilities] = useState();
   const [moves, setMoves] = useState();
 
-  const [aniPicFront, setAniPicFront] = useState('');
-  const [aniPicFront2, setAniPicFront2] = useState('');
-  const [aniPicBack, setAniPicBack] = useState('');
-  const [aniPicBack2, setAniPicBack2] = useState('');
+  const [aniPicFront, setAniPicFront] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif',
+  );
+  const [aniPicFront2, setAniPicFront2] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/shiny/25.gif',
+  );
+  const [aniPicBack, setAniPicBack] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/25.gif',
+  );
+  const [aniPicBack2, setAniPicBack2] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/shiny/25.gif',
+  );
 
-  const [picFront, setPicFront] = useState('');
-  const [picFront2, setPicFront2] = useState('');
-  const [picBack, setPicBack] = useState('');
-  const [picBack2, setPicBack2] = useState('');
+  const [picFront, setPicFront] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
+  );
+  const [picFront2, setPicFront2] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png',
+  );
+  const [picBack, setPicBack] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png',
+  );
+  const [picBack2, setPicBack2] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/25.png',
+  );
 
-  const [picDreamWorld, setPicDreamWorld] = useState('');
-  const [picOfficial, setPicOfficial] = useState('');
+  const [picDreamWorld, setPicDreamWorld] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/25.svg',
+  );
+  const [picOfficial, setPicOfficial] = useState(
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png',
+  );
 
   useEffect(() => {
     let unsubscribe = navigation.addListener('focus', () => {
@@ -54,12 +75,51 @@ const Screen2 = ({navigation}) => {
     setRank(R);
     const res = await getPokeData(R);
     // console.log(res.name);
+    setName(res.name);
     // console.log(res.height);
+    setHeight(res.height);
     // console.log(res.weight);
+    setWeight(res.weight);
     // console.log(res.species);
+    setSpecies(res.species);
     // console.log(res.types);
+    setTypes(res.types);
     // console.log(res.abilities);
+    setAbilities(res.abilities);
     // console.log(res.moves);
+    setMoves(res.moves);
+    //console.log(res.sprites.back_default);
+    setPicBack(res.sprites.back_default);
+    //console.log(res.sprites.back_shiny);
+    setPicBack2(res.sprites.back_shiny);
+    //console.log(res.sprites.front_default);
+    setPicFront(res.sprites.front_default);
+    //console.log(res.sprites.front_shiny);
+    setPicFront2(res.sprites.front_shiny);
+    //console.log(res.sprites.other.dream_world.front_default);
+    setPicDreamWorld(res.sprites.other.dream_world.front_default);
+    ///console.log(res.sprites.other['official-artwork']['front_default']);
+    setPicOfficial(res.sprites.other['official-artwork']['front_default']);
+    setAniPicBack(
+      res.sprites.versions['generation-v']['black-white']['animated'][
+        'back_default'
+      ],
+    );
+    setAniPicFront(
+      res.sprites.versions['generation-v']['black-white']['animated'][
+        'front_default'
+      ],
+    );
+    setAniPicBack2(
+      res.sprites.versions['generation-v']['black-white']['animated'][
+        'back_shiny'
+      ],
+    );
+    setAniPicFront2(
+      res.sprites.versions['generation-v']['black-white']['animated'][
+        'front_shiny'
+      ],
+    );
   }
 
   return (
@@ -69,24 +129,74 @@ const Screen2 = ({navigation}) => {
         <View style={styles.interface}>
           <View style={styles.dataFrame}>
             <View style={styles.displayInfo}>
-              <Text style={styles.displayText}>pikachu</Text>
+              <Text style={styles.displayText}>{name}</Text>
             </View>
             <View style={styles.displayInfo2}>
               <View
                 style={{height: '50%', width: '99.9%', flexDirection: 'row'}}>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picFront}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picBack}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picFront2}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picBack2}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picDreamWorld}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
               </View>
               <View
                 style={{height: '50%', width: '99.9%', flexDirection: 'row'}}>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
-                <View style={styles.minDisplay}></View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: aniPicFront}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: aniPicBack}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: aniPicFront2}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: aniPicBack2}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
+                <View style={styles.minDisplay}>
+                  <WebView
+                    source={{uri: picOfficial}}
+                    style={styles.minDisplayImages}
+                  />
+                </View>
               </View>
             </View>
           </View>
@@ -109,8 +219,12 @@ const Screen2 = ({navigation}) => {
             <TouchableOpacity style={styles.arrowButtonRight}>
               <AntDesignIcon name="caretright" size={30} color="#7f0000" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.bigButton}></TouchableOpacity>
-            <TouchableOpacity style={styles.bigButton2}></TouchableOpacity>
+            <TouchableOpacity style={styles.bigButton}>
+              <Text style={{fontSize: 20, fontWeight: 'bold'}}>Info</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.bigButton2}>
+              <Text style={{fontSize: 20, fontWeight: 'bold'}}>Pictures</Text>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.interfacePart}></View>
@@ -283,7 +397,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     borderWidth: 1,
     borderRadius: 10,
+    // overflow: 'hidden',
     elevation: 10,
+  },
+  minDisplayImages: {
+    height: '99%',
+    width: '99%',
+    backgroundColor: 'black',
+    borderRadius: 10,
   },
   controlFrame: {
     height: '30%',
@@ -393,13 +514,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     position: 'absolute',
     top: '60%',
-    left: '13%',
+    left: '10%',
     // borderWidth: 1,
     backgroundColor: '#ffc400',
     // shadowColor: '#000000',
     // shadowOffset: {width: 0, height: 2},
     // shadowOpacity: 0.9,
     // shadowRadius: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
     elevation: 20,
   },
   bigButton2: {
@@ -408,13 +531,15 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     position: 'absolute',
     top: '60%',
-    left: '50%',
+    left: '55%',
     // borderWidth: 1,
     backgroundColor: '#ffc400',
     // shadowColor: '#000000',
     // shadowOffset: {width: 0, height: 2},
     // shadowOpacity: 0.9,
     // shadowRadius: 3,
+    alignItems: 'center',
+    justifyContent: 'center',
     elevation: 10,
   },
 });
